@@ -19,7 +19,10 @@ jobs:
         aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
         aws-region: ${{ secrets.AWS_REGION }}
 
-    - name: Sync files to S3 bucket and Invalidate 
+    - name: Sync files to S3 bucket
       run: |
         aws s3 sync ./ s3://din.global --delete --exclude '.git*/*'
+        
+    - name: Invalidate cloudfront 
+      run: |      
         aws cloudfront create-invalidation --distribution-id EJ9HYRC6B1P88 --paths "/index.html"

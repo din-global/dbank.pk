@@ -15811,8 +15811,9 @@
                                     <!-- -->
                                     <a class="text-dark" href="mailto:contact@din.global">contact@din.global</a>
                                 </p>
-                                <p class="mt-3 mt-md-0 m-0" style="font-size: 12px;">Copyrights 2023 | All Rights Reserved.
-                                    <a class="text-dark" target="_blank" href="/terms-conditions.html">Terms and Conditions <span class="mx-1">|</span> Privacy Policy</a></p>
+                                <p class="mt-3 mt-md-0 m-0" style="font-size: 12px;">Copyrights <span id="currentYear"></span> | All Rights Reserved.
+                                    <a class="text-dark" target="_blank" href="/terms-conditions.html">Terms and Conditions <span class="mx-1">|</span> Privacy Policy</a>
+                                </p>
                             </div>
                         </div>
                     </div>
@@ -15835,6 +15836,8 @@
                 }
             }, true);
         });
+            document.getElementById("currentYear").textContent = `${new Date().getFullYear()}`
+
         </script>
     </body>
 </html>
